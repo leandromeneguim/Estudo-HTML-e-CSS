@@ -1,0 +1,199 @@
+@charset "UTF-8";
+/* Para comentários usar*/
+/*criando a regra para acentuação usa-se charset UTF-8*, todas as regras começam com @*/
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+ /* importando fonte do google fonts*/
+@font-face {      /*importando fontes internas */
+    font-family:'android'; /* dando um nome pra fonte */
+    src: url(../fontes/idroid.otf) format('opentype'); /*indicando o arquivo da fonte */
+    font-weight: bold;
+    font-family:'love'; /* dando um nome pra fonte */
+    src: url(../fontes/LoveLadyPersonalUse.ttf) format('opentype'); /*indicando o arquivo da fonte */
+    font-weight: bold;
+}
+
+   /* #c5ebd6
+   #83e1a3
+   #3ddc84
+   #2fa866
+   #1a5c37
+   #063d1e  cores usadas no site*/
+   :root {       /* pseudo classe, a arvore de variaveis globais usadas no site, nesse caso, as cores */ 
+        --cor0: #c5ebd6;
+        --cor1: #83e1a3;
+        --cor2: #3ddc84;
+        --cor3: #2fa866;
+        --cor4: #1a5c37;
+        --cor5: #063d1e;
+
+        --font-padrao: arial, verdana, helvetica, sans-serif;
+        --font-destaque: 'Bebas Neue', cursive;
+        --font-android: 'android', 'love' , cursive; /* buscou a fonte importada acima*/
+        
+} 
+
+* { /* seletor global - selecionou todos os elementos da página*/
+    margin: 0px;
+    padding: 0px;
+}
+body{
+    font-family:var(--font-padrao); /* buscou a variavel acima*/
+    font-size: 16px;
+    color: black;
+}
+a.externo:after {        /*chamou uma classe de link externo e após ele, colocara o conteudo abaixo */
+        content: '\00a0\1F517'; /*colocou um conteudo de espaço em bracno e um emoji */
+}
+header {
+    background-image: linear-gradient(to bottom, var(--cor2), var(--cor5)) ;
+    min-height: 150px; /* altura min de 150px*/
+    text-align: center;
+    padding-top: 30px; /* para distanciar do limite da margin*/
+}
+header h1 {
+    color: white;
+    font-family: var(--font-destaque); /* buscou a variavel acima*/
+    font-size: 3em; /* engordar a letra*/
+    margin-top: 20px;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 0px rgba(0, 0, 0.267);
+}
+header p {
+    color: white;
+    font-family: var(--font-padrao);
+    font-size: 1.2em;
+    max-width: 500px;
+    padding-left: 10px; /* para conforme for diminuindo a tela ele nao colar*/
+    padding-right: 10px;
+    padding-bottom: 10px;
+    margin:auto;
+    text-shadow: 2px 2px 0px rgba(0, 0, 0.267);
+}
+nav {
+    background-color: #063d1e;
+    padding: 10px;
+    
+    box-shadow: 0px 7px 7px rgba(0, 0, 0.192);
+    text-align: center;
+
+}
+nav > a {
+    color: #c5ebd6;
+    padding: 10px;
+    padding-right: 20px;/* distanciar as palavras umas das outras */
+    padding-left: 20px;
+    text-decoration: none ;
+    font-weight: bold; /* largura da fonte */
+    
+    
+}
+nav > a:hover {
+    background-color: #2fa866;
+    color: #063d1e;
+    border-radius: 5px;
+}
+main {
+    background-color: white;
+    min-width: 300px; /* largura min*/
+    max-width: 800px; /* largura max*/
+    padding: 20px; /* para desgrudar, dar um espaço da margem*/
+    box-shadow: 0px 0px 10px black; /* sobra somente na difusao, sem deslocamento*/
+    margin: auto; /* margem automatica, para em tela maiores, centralizar o main*/
+    margin-bottom: 20px ; /* para desgrudar, dar um espaço do rodapé*/
+    border-bottom-left-radius: 10px; /* usou o bottom dentro do radius, pq so quer arredondar a parte de baixo*/
+    border-bottom-right-radius: 10px;
+
+}
+main h1 {
+    color: #063d1e;
+    font-family: var(--font-destaque);/* buscou a variavel acima*/
+    font-weight: normal; /* todo h1 é negrito, esse eu quero normal*/
+    font-size: 1.8em; /* aumentar um pouco a letra*/
+}
+main h2 {
+    color: #1a5c37;
+    font-family: var(--font-destaque);/* buscou a variavel acima*/
+    font-size: 1.3em; /* tamanho da fonte*/
+    background-image: linear-gradient(to right, var(--cor1), transparent) ;
+    text-indent: 8px; /* é o paragrafo, só uma leve deslocada para a esq*/
+}
+main img {
+    width: 100% ; /* largura de 100% da main*/
+}
+main img.pequena {
+    width: 350px; /* largura de 50% da main, pois so tinha essa imagem e nao daria para mudar como as outras*/
+    display: block; /* transformando a img em uma caixa para aplicar a margin auto*/
+    margin:auto
+}
+div.video {  /* transformou o video em uma box, usando div e class*/
+    background-color:#063d1e ; /* colocou um fundo na box */
+    margin: 0px -20px 30px -20px; /* para se adquar a box do main */
+    padding: 20px; /* para criar espaço até a borda */
+    padding-bottom: 59%; /* aqui começa o macete, essa porcentagem interfere no video, tem que testar a melhor */
+    position: relative; /* que pode mudar - macete tb */
+}
+div.video iframe {
+    position: absolute; /* que nao muda - macete tb */
+    top: 5%;  /* tudo abaixo, fixa o absoluto acima em % do tam da tela */
+    left: 5%;
+    width: 90%;
+    height: 90%;
+}
+main p { /* todos os p, dentro do main*/
+    margin:15px 0px 15px 0px;
+    text-align: justify;
+    text-indent: 30px; /* é o paragrafo*/
+    font-size: 1em; /* tamanho da fonte*/
+    line-height: 2em; /* espaço entre linhas*/
+}
+main strong { /* destaque p todas as palavras que eu coloquei strong / negrito, dentro do main*/
+    color: #1a5c37;
+    font-weight: bold;
+}
+main a { /* destaque p todos os links, dentro do main*/
+    text-decoration: none;
+    font-weight: bold;
+    color: #063d1e;
+    background-color: #83e1a3;
+    padding: 2px 6px;
+}
+main a:hover { /* destaque p todos os links, dentro do main*/
+    text-decoration: underline;
+    color: black;
+}
+aside {
+    background-color: #c5ebd6; /* coloriu a box*/
+    padding: 10px;
+    border-radius: 10px;/* cantos da box arredondadas*/
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.438);
+}
+aside h3 { 
+    background-color:#1a5c37;
+    color: white;
+    padding: 10px;
+    margin: -10px -10px 0px -10px; /* para encaixar a box do h3 dentro da box aside*/
+    border-radius: 10px 10px 0px 0px;
+
+}
+aside ul {
+    list-style-type: '\2714\00a0\00a0' ; /* para trocar o tipo de marcado -  pegou da emojipedia, só a numeraççao do código, colocou entre '' com a barra invertida\ e o codigo 00A0 é para espaçar */
+    list-style-position: inside; /* possição dos marcadores da lista - dentro da box*/
+    columns: 2; /* dividiu o texto em duas colunas*/
+}
+footer {
+    background-color: #063d1e;
+    color: white;
+    text-align: center;
+    font-size: 0.8em; /* ddiminuir um pouco a letra*/
+    padding: 5px;
+}
+footer a{
+    color: whitesmoke;
+    font-weight: bolder;
+    text-decoration: none;
+}
+footer a:hover {
+    text-decoration: underline;
+    color: #c5ebd6;
+}
